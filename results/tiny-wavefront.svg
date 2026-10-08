@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="345" viewBox="0 0 1100 345">
+<rect width="1100" height="345" fill="#0d141b"/>
+<g font-family="sans-serif" fill="#e9eef1">
+<text x="24" y="35" font-size="22" font-weight="600">A clocked diagonal wave · 12 MACs in 5 compute cycles</text>
+<text x="24" y="60" font-size="12" fill="#97a9b7">A=[[1,2,3],[4,5,6]]  B=[[7,8],[9,10],[11,12]] · A moves east → · B moves south ↓ · green = MAC this cycle</text>
+<text x="24" y="93" font-size="13">Compute 1 · clock 4</text>
+<rect x="24" y="107" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="32" y="124" font-size="10" fill="#97a9b7">PE 0,0</text>
+<text x="32" y="142" font-size="11" fill="#7bddc1">A 1 →</text>
+<text x="73" y="142" font-size="11" fill="#f8b982">B 7 ↓</text>
+<text x="32" y="169" font-size="21">7</text>
+<rect x="117" y="107" width="86" height="80" rx="4" fill="#151f28" stroke="#40515f"/>
+<text x="125" y="124" font-size="10" fill="#97a9b7">PE 0,1</text>
+<text x="125" y="142" font-size="11" fill="#7bddc1">A · →</text>
+<text x="166" y="142" font-size="11" fill="#f8b982">B · ↓</text>
+<text x="125" y="169" font-size="21">0</text>
+<rect x="24" y="195" width="86" height="80" rx="4" fill="#151f28" stroke="#40515f"/>
+<text x="32" y="212" font-size="10" fill="#97a9b7">PE 1,0</text>
+<text x="32" y="230" font-size="11" fill="#7bddc1">A · →</text>
+<text x="73" y="230" font-size="11" fill="#f8b982">B · ↓</text>
+<text x="32" y="257" font-size="21">0</text>
+<rect x="117" y="195" width="86" height="80" rx="4" fill="#151f28" stroke="#40515f"/>
+<text x="125" y="212" font-size="10" fill="#97a9b7">PE 1,1</text>
+<text x="125" y="230" font-size="11" fill="#7bddc1">A · →</text>
+<text x="166" y="230" font-size="11" fill="#f8b982">B · ↓</text>
+<text x="125" y="257" font-size="21">0</text>
+<text x="24" y="300" font-size="12" fill="#97a9b7">1 / 4 PEs active</text>
+<text x="239" y="93" font-size="13">Compute 2 · clock 5</text>
+<rect x="239" y="107" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="247" y="124" font-size="10" fill="#97a9b7">PE 0,0</text>
+<text x="247" y="142" font-size="11" fill="#7bddc1">A 2 →</text>
+<text x="288" y="142" font-size="11" fill="#f8b982">B 9 ↓</text>
+<text x="247" y="169" font-size="21">25</text>
+<rect x="332" y="107" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="340" y="124" font-size="10" fill="#97a9b7">PE 0,1</text>
+<text x="340" y="142" font-size="11" fill="#7bddc1">A 1 →</text>
+<text x="381" y="142" font-size="11" fill="#f8b982">B 8 ↓</text>
+<text x="340" y="169" font-size="21">8</text>
+<rect x="239" y="195" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="247" y="212" font-size="10" fill="#97a9b7">PE 1,0</text>
+<text x="247" y="230" font-size="11" fill="#7bddc1">A 4 →</text>
+<text x="288" y="230" font-size="11" fill="#f8b982">B 7 ↓</text>
+<text x="247" y="257" font-size="21">28</text>
+<rect x="332" y="195" width="86" height="80" rx="4" fill="#151f28" stroke="#40515f"/>
+<text x="340" y="212" font-size="10" fill="#97a9b7">PE 1,1</text>
+<text x="340" y="230" font-size="11" fill="#7bddc1">A · →</text>
+<text x="381" y="230" font-size="11" fill="#f8b982">B · ↓</text>
+<text x="340" y="257" font-size="21">0</text>
+<text x="239" y="300" font-size="12" fill="#97a9b7">3 / 4 PEs active</text>
+<text x="454" y="93" font-size="13">Compute 3 · clock 6</text>
+<rect x="454" y="107" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="462" y="124" font-size="10" fill="#97a9b7">PE 0,0</text>
+<text x="462" y="142" font-size="11" fill="#7bddc1">A 3 →</text>
+<text x="503" y="142" font-size="11" fill="#f8b982">B 11 ↓</text>
+<text x="462" y="169" font-size="21">58</text>
+<rect x="547" y="107" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="555" y="124" font-size="10" fill="#97a9b7">PE 0,1</text>
+<text x="555" y="142" font-size="11" fill="#7bddc1">A 2 →</text>
+<text x="596" y="142" font-size="11" fill="#f8b982">B 10 ↓</text>
+<text x="555" y="169" font-size="21">28</text>
+<rect x="454" y="195" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="462" y="212" font-size="10" fill="#97a9b7">PE 1,0</text>
+<text x="462" y="230" font-size="11" fill="#7bddc1">A 5 →</text>
+<text x="503" y="230" font-size="11" fill="#f8b982">B 9 ↓</text>
+<text x="462" y="257" font-size="21">73</text>
+<rect x="547" y="195" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="555" y="212" font-size="10" fill="#97a9b7">PE 1,1</text>
+<text x="555" y="230" font-size="11" fill="#7bddc1">A 4 →</text>
+<text x="596" y="230" font-size="11" fill="#f8b982">B 8 ↓</text>
+<text x="555" y="257" font-size="21">32</text>
+<text x="454" y="300" font-size="12" fill="#97a9b7">4 / 4 PEs active</text>
+<text x="669" y="93" font-size="13">Compute 4 · clock 7</text>
+<rect x="669" y="107" width="86" height="80" rx="4" fill="#151f28" stroke="#40515f"/>
+<text x="677" y="124" font-size="10" fill="#97a9b7">PE 0,0</text>
+<text x="677" y="142" font-size="11" fill="#7bddc1">A · →</text>
+<text x="718" y="142" font-size="11" fill="#f8b982">B · ↓</text>
+<text x="677" y="169" font-size="21">58</text>
+<rect x="762" y="107" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="770" y="124" font-size="10" fill="#97a9b7">PE 0,1</text>
+<text x="770" y="142" font-size="11" fill="#7bddc1">A 3 →</text>
+<text x="811" y="142" font-size="11" fill="#f8b982">B 12 ↓</text>
+<text x="770" y="169" font-size="21">64</text>
+<rect x="669" y="195" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="677" y="212" font-size="10" fill="#97a9b7">PE 1,0</text>
+<text x="677" y="230" font-size="11" fill="#7bddc1">A 6 →</text>
+<text x="718" y="230" font-size="11" fill="#f8b982">B 11 ↓</text>
+<text x="677" y="257" font-size="21">139</text>
+<rect x="762" y="195" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="770" y="212" font-size="10" fill="#97a9b7">PE 1,1</text>
+<text x="770" y="230" font-size="11" fill="#7bddc1">A 5 →</text>
+<text x="811" y="230" font-size="11" fill="#f8b982">B 10 ↓</text>
+<text x="770" y="257" font-size="21">82</text>
+<text x="669" y="300" font-size="12" fill="#97a9b7">3 / 4 PEs active</text>
+<text x="884" y="93" font-size="13">Compute 5 · clock 8</text>
+<rect x="884" y="107" width="86" height="80" rx="4" fill="#151f28" stroke="#40515f"/>
+<text x="892" y="124" font-size="10" fill="#97a9b7">PE 0,0</text>
+<text x="892" y="142" font-size="11" fill="#7bddc1">A · →</text>
+<text x="933" y="142" font-size="11" fill="#f8b982">B · ↓</text>
+<text x="892" y="169" font-size="21">58</text>
+<rect x="977" y="107" width="86" height="80" rx="4" fill="#151f28" stroke="#40515f"/>
+<text x="985" y="124" font-size="10" fill="#97a9b7">PE 0,1</text>
+<text x="985" y="142" font-size="11" fill="#7bddc1">A · →</text>
+<text x="1026" y="142" font-size="11" fill="#f8b982">B · ↓</text>
+<text x="985" y="169" font-size="21">64</text>
+<rect x="884" y="195" width="86" height="80" rx="4" fill="#151f28" stroke="#40515f"/>
+<text x="892" y="212" font-size="10" fill="#97a9b7">PE 1,0</text>
+<text x="892" y="230" font-size="11" fill="#7bddc1">A · →</text>
+<text x="933" y="230" font-size="11" fill="#f8b982">B · ↓</text>
+<text x="892" y="257" font-size="21">139</text>
+<rect x="977" y="195" width="86" height="80" rx="4" fill="#18372e" stroke="#7bddc1"/>
+<text x="985" y="212" font-size="10" fill="#97a9b7">PE 1,1</text>
+<text x="985" y="230" font-size="11" fill="#7bddc1">A 6 →</text>
+<text x="1026" y="230" font-size="11" fill="#f8b982">B 12 ↓</text>
+<text x="985" y="257" font-size="21">154</text>
+<text x="884" y="300" font-size="12" fill="#97a9b7">1 / 4 PEs active</text>
+<text x="24" y="330" font-size="11" fill="#97a9b7">Displayed numbers are local accumulators after each clock edge. External transfer phases add 3 load + 3 store cycles; total = 11.</text></g></svg>

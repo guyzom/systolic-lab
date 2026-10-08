@@ -1,0 +1,652 @@
+{
+  "schema_version": 1,
+  "shape": {
+    "m": 2,
+    "k": 3,
+    "n": 2
+  },
+  "config": {
+    "rows": 2,
+    "cols": 2,
+    "bandwidth": 8,
+    "latency": 1,
+    "scratchpad": 32768
+  },
+  "a": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      5,
+      6
+    ]
+  ],
+  "b": [
+    [
+      7,
+      8
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      11,
+      12
+    ]
+  ],
+  "result": [
+    [
+      58,
+      64
+    ],
+    [
+      139,
+      154
+    ]
+  ],
+  "reference": [
+    [
+      58,
+      64
+    ],
+    [
+      139,
+      154
+    ]
+  ],
+  "verified": true,
+  "metrics": {
+    "load_cycles": 3,
+    "compute_cycles": 5,
+    "store_cycles": 3,
+    "load_bytes": 12,
+    "store_bytes": 16,
+    "link_bytes": 12,
+    "useful_macs": 12,
+    "scratchpad_reads": 12,
+    "masked_pe_cycles": 0,
+    "total_cycles": 11,
+    "tile_count": 1,
+    "external_bytes": 28,
+    "peak_operand_bytes": 12,
+    "compute_utilization": 0.6,
+    "overall_utilization": 0.2727272727272727,
+    "macs_per_external_byte": 0.42857142857142855,
+    "naive_external_bytes": 40
+  },
+  "tiles": [
+    {
+      "id": 0,
+      "row": 0,
+      "col": 0,
+      "height": 2,
+      "width": 2,
+      "start_cycle": 1,
+      "load_bytes": 12,
+      "store_bytes": 16,
+      "compute_cycles": 5,
+      "load_cycles": 3,
+      "compute_start_cycle": 4,
+      "store_cycles": 3,
+      "end_cycle": 11
+    }
+  ],
+  "frames": [
+    {
+      "cycle": 1,
+      "tile": 0,
+      "phase": "load",
+      "phase_cycle": 1,
+      "cells": [
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 0,
+      "link_bytes": 0,
+      "transfer_bytes": 0,
+      "transferred_bytes": 0,
+      "transaction_bytes": 12,
+      "setup": true
+    },
+    {
+      "cycle": 2,
+      "tile": 0,
+      "phase": "load",
+      "phase_cycle": 2,
+      "cells": [
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 0,
+      "link_bytes": 0,
+      "transfer_bytes": 8,
+      "transferred_bytes": 8,
+      "transaction_bytes": 12,
+      "setup": false
+    },
+    {
+      "cycle": 3,
+      "tile": 0,
+      "phase": "load",
+      "phase_cycle": 3,
+      "cells": [
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 0,
+      "link_bytes": 0,
+      "transfer_bytes": 4,
+      "transferred_bytes": 12,
+      "transaction_bytes": 12,
+      "setup": false
+    },
+    {
+      "cycle": 4,
+      "tile": 0,
+      "phase": "compute",
+      "phase_cycle": 1,
+      "cells": [
+        [
+          {
+            "a": 1,
+            "b": 7,
+            "k": 0,
+            "acc": 7,
+            "active": true,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 1,
+      "link_bytes": 0,
+      "transfer_bytes": 0,
+      "transferred_bytes": 0,
+      "transaction_bytes": 0,
+      "setup": false
+    },
+    {
+      "cycle": 5,
+      "tile": 0,
+      "phase": "compute",
+      "phase_cycle": 2,
+      "cells": [
+        [
+          {
+            "a": 2,
+            "b": 9,
+            "k": 1,
+            "acc": 25,
+            "active": true,
+            "masked": false
+          },
+          {
+            "a": 1,
+            "b": 8,
+            "k": 0,
+            "acc": 8,
+            "active": true,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": 4,
+            "b": 7,
+            "k": 0,
+            "acc": 28,
+            "active": true,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 0,
+            "active": false,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 3,
+      "link_bytes": 2,
+      "transfer_bytes": 0,
+      "transferred_bytes": 0,
+      "transaction_bytes": 0,
+      "setup": false
+    },
+    {
+      "cycle": 6,
+      "tile": 0,
+      "phase": "compute",
+      "phase_cycle": 3,
+      "cells": [
+        [
+          {
+            "a": 3,
+            "b": 11,
+            "k": 2,
+            "acc": 58,
+            "active": true,
+            "masked": false
+          },
+          {
+            "a": 2,
+            "b": 10,
+            "k": 1,
+            "acc": 28,
+            "active": true,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": 5,
+            "b": 9,
+            "k": 1,
+            "acc": 73,
+            "active": true,
+            "masked": false
+          },
+          {
+            "a": 4,
+            "b": 8,
+            "k": 0,
+            "acc": 32,
+            "active": true,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 4,
+      "link_bytes": 4,
+      "transfer_bytes": 0,
+      "transferred_bytes": 0,
+      "transaction_bytes": 0,
+      "setup": false
+    },
+    {
+      "cycle": 7,
+      "tile": 0,
+      "phase": "compute",
+      "phase_cycle": 4,
+      "cells": [
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 58,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": 3,
+            "b": 12,
+            "k": 2,
+            "acc": 64,
+            "active": true,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": 6,
+            "b": 11,
+            "k": 2,
+            "acc": 139,
+            "active": true,
+            "masked": false
+          },
+          {
+            "a": 5,
+            "b": 10,
+            "k": 1,
+            "acc": 82,
+            "active": true,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 3,
+      "link_bytes": 4,
+      "transfer_bytes": 0,
+      "transferred_bytes": 0,
+      "transaction_bytes": 0,
+      "setup": false
+    },
+    {
+      "cycle": 8,
+      "tile": 0,
+      "phase": "compute",
+      "phase_cycle": 5,
+      "cells": [
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 58,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 64,
+            "active": false,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 139,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": 6,
+            "b": 12,
+            "k": 2,
+            "acc": 154,
+            "active": true,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 1,
+      "link_bytes": 2,
+      "transfer_bytes": 0,
+      "transferred_bytes": 0,
+      "transaction_bytes": 0,
+      "setup": false
+    },
+    {
+      "cycle": 9,
+      "tile": 0,
+      "phase": "store",
+      "phase_cycle": 1,
+      "cells": [
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 58,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 64,
+            "active": false,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 139,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 154,
+            "active": false,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 0,
+      "link_bytes": 0,
+      "transfer_bytes": 0,
+      "transferred_bytes": 0,
+      "transaction_bytes": 16,
+      "setup": true
+    },
+    {
+      "cycle": 10,
+      "tile": 0,
+      "phase": "store",
+      "phase_cycle": 2,
+      "cells": [
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 58,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 64,
+            "active": false,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 139,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 154,
+            "active": false,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 0,
+      "link_bytes": 0,
+      "transfer_bytes": 8,
+      "transferred_bytes": 8,
+      "transaction_bytes": 16,
+      "setup": false
+    },
+    {
+      "cycle": 11,
+      "tile": 0,
+      "phase": "store",
+      "phase_cycle": 3,
+      "cells": [
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 58,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 64,
+            "active": false,
+            "masked": false
+          }
+        ],
+        [
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 139,
+            "active": false,
+            "masked": false
+          },
+          {
+            "a": null,
+            "b": null,
+            "k": null,
+            "acc": 154,
+            "active": false,
+            "masked": false
+          }
+        ]
+      ],
+      "active_macs": 0,
+      "link_bytes": 0,
+      "transfer_bytes": 8,
+      "transferred_bytes": 16,
+      "transaction_bytes": 16,
+      "setup": false
+    }
+  ],
+  "input_kind": "provided JSON",
+  "seed": null
+}

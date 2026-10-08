@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Systolic Lab · Architecture Workbench</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="eyebrow"><span class="brand-mark">SL</span> SYSTOLIC LAB <span class="muted">/ ARCHITECTURE WORKBENCH</span></div>
+  <div class="intro"><div><h1>Watch a matrix multiply.</h1><p>Follow operands through a clocked array. See where the cycles go.</p></div><span class="model-badge">OUTPUT STATIONARY <span>INT8 → INT32</span></span></div>
+</header>
+<main>
+  <aside>
+    <form id="config">
+      <section class="panel settings"><h2><span>01</span> Configure the workload</h2>
+        <p class="note">A[M × K] · B[K × N] = C[M × N]</p>
+        <div class="fields triple"><label>M<input name="m" type="number" min="1" max="32" value="2" required></label><label>K<input name="k" type="number" min="1" max="32" value="3" required></label><label>N<input name="n" type="number" min="1" max="32" value="2" required></label></div>
+        <div class="fields"><label>Array rows<input name="rows" type="number" min="1" max="8" value="2" required></label><label>Array columns<input name="cols" type="number" min="1" max="8" value="2" required></label></div>
+        <label>Synthetic input seed<input name="seed" type="number" value="7" required></label>
+        <p class="note">Seeded integers −4…4. The teaching example uses fixed matrices.</p>
+      </section>
+      <section class="panel settings"><h2><span>02</span> Set the memory budget</h2>
+        <label>External bandwidth <span class="unit">bytes / cycle</span><input name="bandwidth" type="number" min="1" max="4096" value="8" required></label>
+        <label>Transaction setup <span class="unit">cycles</span><input name="latency" type="number" min="0" max="1024" value="1" required></label>
+        <label>Operand scratchpad <span class="unit">bytes</span><input name="scratchpad" type="number" min="1" max="1048576" value="32768" required></label>
+        <div class="model-note">Each tile loads all operands, computes, then stores. One shared bus; no overlap. SRAM feeds each boundary lane at one byte per cycle.</div>
+        <button class="primary" type="submit">Run synthetic workload <span>↗</span></button>
+        <button id="demo" type="button">Load 2 × 2 teaching example</button>
+      </section>
+    </form>
+    <section class="panel context"><h2>Reading the array</h2><p><span class="signal-a">A flows east →</span><br><span class="signal-b">B flows south ↓</span></p><p>Every active PE multiplies its two operands and adds to its local accumulator. Inputs with the same reduction index <code>k</code> meet on a diagonal wave.</p><p>Clock counts and byte counts describe this model. They are not measured TPU performance.</p></section>
+  </aside>
+  <div class="workspace">
+    <div id="status" role="status" aria-live="polite">Loading the teaching example…</div>
+    <div class="metrics" id="metrics"></div>
+    <section class="panel array-panel">
+      <div class="section-head"><div><div class="eyebrow muted">CYCLE EXPLORER</div><h2 id="tile-title">Operand wavefront</h2></div><span class="phase-badge" id="phase">—</span></div>
+      <div class="array-meta"><span id="cycle-label">Clock —</span><span id="active-label">— active MACs</span></div>
+      <div class="array-scroll"><div id="array" aria-label="Processing element states"></div></div>
+      <div class="legend"><span><i class="swatch active"></i>MAC this cycle</span><span><i class="swatch idle"></i>Waiting / finished</span><span><i class="swatch masked"></i>Masked edge PE</span></div>
+      <div id="pe-detail" class="detail" aria-live="polite">Select a processing element to inspect its accumulator.</div>
+      <div class="transport"><button id="back" aria-label="Previous cycle">←</button><button id="play" aria-label="Play cycles">Play</button><button id="next" aria-label="Next cycle">→</button><input id="clock" type="range" min="0" max="1" value="0" aria-label="Clock cycle"><span id="clock-total">—</span></div>
+      <svg id="timeline" viewBox="0 0 800 64" preserveAspectRatio="none" role="img" aria-label="Active MACs across the full execution"></svg>
+      <div class="timeline-legend"><span>LOAD</span><span>COMPUTE</span><span>STORE</span><span>Timeline: active MACs per cycle</span></div>
+    </section>
+    <div class="two-up">
+      <section class="panel"><div class="eyebrow muted">MEMORY TRANSACTION</div><h2 id="memory-title">—</h2><progress id="memory-progress" max="1" value="0" aria-label="Current memory transaction progress"></progress><p id="memory-description" class="note"></p><dl id="traffic"></dl></section>
+      <section class="panel"><div class="eyebrow muted">CORRECTNESS</div><h2 class="verified" id="verification">—</h2><p class="note">Exact comparison with independent row–column dot products.</p><div class="matrix-scroll" id="result-matrix"></div><p id="result-note" class="note"></p><button id="download" type="button">Download full cycle trace ↓</button></section>
+    </div>
+    <section class="panel"><div class="section-head"><div><div class="eyebrow muted">SAME INPUTS · SAME MEMORY</div><h2>Does a bigger array help?</h2></div><button id="compare" type="button">Compare 2 / 4 / 8</button></div><p class="note">Array size changes tile reuse and wavefront overhead. Compute utilization excludes transfers; overall utilization includes every cycle.</p><div class="matrix-scroll" id="comparison"><p class="muted">Run the comparison to see the tradeoff.</p></div></section>
+    <details class="panel"><summary>Input matrices & model equations</summary><div class="two-up"><div><h3>Matrix A</h3><div id="matrix-a" class="matrix-scroll"></div></div><div><h3>Matrix B</h3><div id="matrix-b" class="matrix-scroll"></div></div></div><p>For a tile of h × w outputs: operand bytes = K(h + w), output bytes = 4hw, compute cycles = K + h + w − 2. Each transaction takes setup + ⌈bytes / bandwidth⌉ cycles. Global utilization = MNK / (array rows · array columns · total cycles).</p><p>Tail tiles omit padding reads and mask unused PEs. Accumulators stay local for all K steps. Scratchpad capacity holds operands only. No reuse across output tiles, double buffering, bank conflicts, DMA contention, energy model, or TPU instruction set is modeled.</p></details>
+  </div>
+</main>
+<footer>Model v1 · Python standard library · <a href="https://www.eecs.harvard.edu/~htk/publication/1982-kung-why-systolic-architecture.pdf">Kung, 1982</a> · <a href="https://arxiv.org/abs/1704.04760">Jouppi et al., 2017</a><span>Local educational simulator</span></footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+Clean-copy execution verification
+Python 3.13.11 | macOS 27.0.1 | arm64
+Fresh virtual environment; empty inherited environment; no third-party project dependencies installed or required.
+
+$ python -m unittest discover -s tests -v
+
+test_http_errors_are_explicit (test_server.ServerTests.test_http_errors_are_explicit) ... ok
+test_static_assets_and_live_api (test_server.ServerTests.test_static_assets_and_live_api) ... ok
+test_summary_api_and_capacity_error (test_server.ServerTests.test_summary_api_and_capacity_error) ... ok
+test_240_seeded_random_shapes_and_rectangular_arrays (test_simulator.SimulatorTests.test_240_seeded_random_shapes_and_rectangular_arrays) ... ok
+test_bandwidth_affects_only_transfer_cycles (test_simulator.SimulatorTests.test_bandwidth_affects_only_transfer_cycles) ... ok
+test_int8_extremes_fit_int32 (test_simulator.SimulatorTests.test_int8_extremes_fit_int32) ... ok
+test_invalid_inputs_and_configuration (test_simulator.SimulatorTests.test_invalid_inputs_and_configuration) ... ok
+test_known_product_and_exact_clock_schedule (test_simulator.SimulatorTests.test_known_product_and_exact_clock_schedule) ... ok
+test_ragged_tiles_no_padding_traffic (test_simulator.SimulatorTests.test_ragged_tiles_no_padding_traffic) ... ok
+test_registered_transport_and_reduction_index (test_simulator.SimulatorTests.test_registered_transport_and_reduction_index) ... ok
+test_scratchpad_boundary_rejects_oversized_tile (test_simulator.SimulatorTests.test_scratchpad_boundary_rejects_oversized_tile) ... ok
+test_summary_and_trace_are_identical_and_repeatable (test_simulator.SimulatorTests.test_summary_and_trace_are_identical_and_repeatable) ... ok
+test_trace_resource_limit_does_not_limit_summary (test_simulator.SimulatorTests.test_trace_resource_limit_does_not_limit_summary) ... ok
+test_zero_operands_still_count_scheduled_macs (test_simulator.SimulatorTests.test_zero_operands_still_count_scheduled_macs) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.705s
+
+OK
+
+Exit status: 0
+
+$ python -m systolic_lab simulate --input examples/tiny.json --rows 2 --cols 2 --bandwidth 8 --latency 1 --trace --output results/tiny-trace.json
+{
+  "verified": true,
+  "shape": {
+    "m": 2,
+    "k": 3,
+    "n": 2
+  },
+  "metrics": {
+    "load_cycles": 3,
+    "compute_cycles": 5,
+    "store_cycles": 3,
+    "load_bytes": 12,
+    "store_bytes": 16,
+    "link_bytes": 12,
+    "useful_macs": 12,
+    "scratchpad_reads": 12,
+    "masked_pe_cycles": 0,
+    "total_cycles": 11,
+    "tile_count": 1,
+    "external_bytes": 28,
+    "peak_operand_bytes": 12,
+    "compute_utilization": 0.6,
+    "overall_utilization": 0.2727272727272727,
+    "macs_per_external_byte": 0.42857142857142855,
+    "naive_external_bytes": 40
+  },
+  "result": [
+    [
+      58,
+      64
+    ],
+    [
+      139,
+      154
+    ]
+  ]
+}
+
+
+Exit status: 0
+
+$ python -m experiments.tiny
+results/tiny-wavefront.svg
+
+
+Exit status: 0
+
+$ python -m experiments.run
+Verified 11 experiment configurations. Saved results/experiments.json, experiments.csv, bandwidth.svg
+
+
+Exit status: 0
+
+Byte-identical regenerated artifact: results/tiny-trace.json; SHA-256 8a8e2387f9d2a245ad506516979f1f4c809c441774a5ef48bd698d9547761793
+Byte-identical regenerated artifact: results/tiny-wavefront.svg; SHA-256 45d549ecb19d179dba54a1f2888f2f50ed53703cf9a1489e662a7902165ff358
+Byte-identical regenerated artifact: results/experiments.json; SHA-256 f25a7408a16e61c63d40e3043cd5acf8883ed8ef9235db7c261d8021d18e56d1
+Byte-identical regenerated artifact: results/experiments.csv; SHA-256 dca316401648833f8bf153038618043b3aa6801fe52decd92bb539e6f2a0ea80
+Byte-identical regenerated artifact: results/bandwidth.svg; SHA-256 beb18bc646b723f13b803d4d9af953318c9fea50f6110fa1916da99ee9dab51c
+
+Invalid CLI bandwidth: exit 2 with explicit validation error.
